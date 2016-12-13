@@ -1,1 +1,1 @@
-<?include_once("index.html");?>
+<?include_once("public/index.html");?>
