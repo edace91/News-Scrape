@@ -46,7 +46,9 @@ db.once("open", function() {
 
 // Simple index route
 app.get("/", function(req, res) {
-  res.send(index.html);
+  
+  db.getCollection('articles').find({})
+  res.render('index', { articles: data })
 });
 
 // A GET request to scrape the echojs website

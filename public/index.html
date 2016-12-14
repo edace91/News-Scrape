@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="UTF-8">
-    <title>Scraping With Mongoose</title>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+    <title>News Scrape</title>
+
+    <!-- Bootstrap Core CSS -->
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
     <style>
-      body { background-color: #F2F6D0 }
+      body { background-color: #100755;
+              color: white;
+
+       }
       #wrapper {
         width: 960px;
         margin-left: auto;
@@ -39,11 +54,28 @@
   <body>
     <div id="wrapper">
       <h1>Note Scraper</h1>
-      <h2><i>If you can do this...the homework should be no problem.</i></h2>
+      <h1>Articles with your Notes</h1>
+
+      
+
       <div id="articles"></div>
       <div id="notes"></div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="app.js"></script>
+    <script type = "text/template">
+      <h3> Save </h3>
+        <div class="article">
+            <form method="GET" action="/" class="form">
+                <ul>
+                  {{#each articles}}
+                    <li>
+                      {{this.title}}
+                    </li>
+                  {{/each}}
+                </ul>
+            </form>
+        </div>    
+    </script>
   </body>
 </html>
