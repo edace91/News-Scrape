@@ -154,6 +154,26 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 
+// Delete One from the DB
+app.get("/delete/:id", function(req, res) {
+  // Remove a note using the objectID
+  db.notes.remove({
+    "_id": mongojs.ObjectID(req.params.id)
+  }, function(error, removed) {
+    // Log any errors from mongojs
+    if (error) {
+      console.log(error);
+      res.send(error);
+    }
+    // Otherwise, send the mongojs response to the browser
+    // This will fire off the success function of the ajax request
+    else {
+      console.log(removed);
+      res.send(removed);
+    }
+  });
+});
+
 
 // Listen on port 3000
 app.listen(3000, function() {
