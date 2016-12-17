@@ -74,7 +74,7 @@ $(document).on("click", "#savenote", function() {
 // When user clicks the deleter button for a note
 $(document).on("click", ".deleter", function() {
   // Save the p tag that encloses the button
-  var selected = $(this).parent();
+  var selected = $(this);
   // Make an AJAX GET request to delete the specific note
   // this uses the data-id of the p-tag, which is linked to the specific note
   $.ajax({

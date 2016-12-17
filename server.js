@@ -14,7 +14,7 @@ var cheerio = require("cheerio");
 var Promise = require("bluebird");
 
 mongoose.Promise = Promise;
-
+var PORT = process.env.PORT || 3000; 
 // Initialize Express
 var app = express();
 
@@ -26,9 +26,15 @@ app.use(bodyParser.urlencoded({
 
 // Make public a static dir
 app.use(express.static("public"));
+var databaseUri= 'mongodb://localhost/News-Scrape';
 
-// Database configuration with mongoose
-mongoose.connect("mongodb://localhost/News-Scrape");
+if (process.env.MONGODB_URI) {
+
+    mongoose.connect(process.env.MONGODB_URI);
+} else{
+  mongoose.connect(databaseUri);
+}
+
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -156,9 +162,10 @@ app.post("/articles/:id", function(req, res) {
 });
 
 // Delete One from the DB
-app.get("/delete/:id", function(req, res) {
+app.delete("/delete/:id", function(req, res) {
   // Remove a note using the objectID
-  db.notes.remove({
+  console.log(req.params.id);
+  Note.remove({
     "_id": mongojs.ObjectID(req.params.id)
   }, function(error, removed) {
     // Log any errors from mongojs
@@ -177,6 +184,6 @@ app.get("/delete/:id", function(req, res) {
 
 
 // Listen on port 3000
-app.listen(3000, function() {
+app.listen(PORT, function() {
   console.log("App running on port 3000!");
 });
