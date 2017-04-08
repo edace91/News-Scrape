@@ -3,7 +3,7 @@ A web app that lets users leave comments on the latest news. Uses Mongoose and C
 
 ## Synopsis
 
-Whenever a user visits the site, the app will scrape stories from a news outlet of your choice. The data will  include a link to the story and the headline
+Whenever a user visits the site, the app will scrape stories from The New York Times. The data will  include a link to the story and the headline.
 Cheerio grabs the site content and uses Mongoose to save it to the MongoDB database.
 All users can leave comments on the stories collected. Users can also delete whatever comments they want removed. All stored comments are visible to every user. The app uses Mongoose's model system to associate comments with particular articles.
 
