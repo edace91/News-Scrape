@@ -20,7 +20,7 @@ All users can leave comments on the stories collected. Users can also delete wha
 
 ### mLab (Deployment)
 
-  * A emote MongoDB database that Heroku supports natively. 
+  * A remote MongoDB database that Heroku supports natively. 
   
 ## Motivation
 
